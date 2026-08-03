@@ -547,15 +547,15 @@ h1,h2,h3,h4 { font-family: 'Space Grotesk', sans-serif; }
     <div class="promo-icon">💲</div>
     <div class="promo-text">
       <h3>5% de desconto à vista!</h3>
-      <p>Pagando em dinheiro em espécie você tem 5% de desconto em qualquer compra hoje.</p>
+      <p>Pagando em dinheiro em espécie você tem 5% de desconto em qualquer pizza VÁLIDO SOMENTE PARA PIZZAS!</p>
     </div>
   </div>
   <!-- Promo -->
   <div class="promo-banner" id="promoBanner">
     <div class="promo-icon">🧈</div>
     <div class="promo-text">
-      <h3>CHEDDAR E CATUPIRY POR NOSSA CONTA!</h3>
-      <p>Cheddar e catupiy está incluso em todas as nossas pizzas, se não gostar por favor peça para que não coloque na sua pizza</p>
+      <h3>CHEDDAR E CATUPIRY POR NOSSA CONTA HOJE!</h3>
+      <p>Cheddar e catupiy está incluso em todas as nossas pizzas,más se não gostar por favor peça para que não coloque na sua pizza no momento em que enviar o comprovante do pedido para nosso WhatsApp</p>
     </div>
   </div>
 
@@ -667,43 +667,43 @@ h1,h2,h3,h4 { font-family: 'Space Grotesk', sans-serif; }
 /* ========== DATA ========== */
 const PRODUCTS = [
   { id: 1, name: 'Pizza Mussarela 8 fatias', category: 'pizza', size: '8', description: 'Molho de tomate, milho verde, presunto, mussarela, azeitonas verdes, tomate, cebola, orégano e azeite', price: 50.00, emoji: '🍕' },
-  { id: 2, name: 'Pizza Calabresa 8 fatias', category: 'pizza', size: '8', description: 'Molho especial de tomate, milho, presunto, mussarela, calabresa fatiada, azeitona, tomate, cebola, orégano e azeite', price: 65.00, emoji: '🍕' },
-  { id: 201, name: 'Pizza Calabresa simples/econômica 8 fatias', category: 'pizza', size: '8', description: 'Molho, calabresa fatiada, cebola, mussarela, azeitonas verdes, orégano', price: 50.00, emoji: '🍕' },
-  { id: 3, name: 'Pizza Bacon 8 fatias', category: 'pizza', size: '8', description: 'Molho de tomate, milho, presunto, mussarela, bacon fatiado, tomate, azeitona, cebola, orégano e azeite', price: 66.00, emoji: '🍕' },
-  { id: 4, name: 'Pizza Mexicana 8 fatias', category: 'pizza', size: '8', description: 'Molho, carne moída, milho, presunto, mussarela, tomate, azeitona, cebola, orégano e azeite', price: 70.00, emoji: '🍕' },
-  { id: 5, name: 'Pizza Frango 8 fatias', category: 'pizza', size: '8', description: 'Molho, frango desfiado, milho, presunto, mussarela, tomate, azeitona, cebola, orégano e azeite', price: 70.00, emoji: '🍕' },
-  { id: 6, name: 'Pizza à moda da casa frango 8 fatias', category: 'pizza', size: '8', description: 'Molho, frango desfiado, presunto, salsicha, milho, mussarela, calabresa, bacon, tomate, azeitona, cebola, orégano e azeite', price: 72.00, emoji: '🍕' },
-  { id: 7, name: 'Pizza à moda da casa carne moída 8 fatias', category: 'pizza', size: '8', description: 'Molho, carne moída, presunto, salsicha, milho, mussarela, calabresa, bacon, tomate, azeitona, cebola, orégano e azeite', price: 72.00, emoji: '🍕' },
-  { id: 8, name: 'Pizza Bacon simples/econômica 8 fatias', category: 'pizza', size: '8', description: 'Molho, mussarela, bacon, tomate, cebola, azeite', price: 52.00, emoji: '🍕' },
-  { id: 9, name: 'Pizza Mussarela 6 fatias', category: 'pizza', size: '6', description: 'Molho de tomate, milho verde, presunto, mussarela, azeitonas verdes, tomate, cebola, orégano e azeite', price: 35.00, emoji: '🍕' },
-  { id: 10, name: 'Pizza Calabresa 6 fatias', category: 'pizza', size: '6', description: 'Molho especial de tomate, milho, presunto, mussarela, calabresa fatiada, azeitona, tomate, cebola, orégano e azeite', price: 40.00, emoji: '🍕' },
-  { id: 202, name: 'Pizza Calabresa simples/econômica 6 fatias', category: 'pizza', size: '6', description: 'Molho, calabresa fatiada, cebola, mussarela, azeitonas verdes, orégano', price: 33.00, emoji: '🍕' },
-  { id: 11, name: 'Pizza Bacon 6 fatias', category: 'pizza', size: '6', description: 'Molho de tomate, milho, presunto, mussarela, bacon fatiado, tomate, azeitona, cebola, orégano e azeite', price: 41.00, emoji: '🍕' },
-  { id: 12, name: 'Pizza Mexicana 6 fatias', category: 'pizza', size: '6', description: 'Molho, carne moída, milho, presunto, mussarela, tomate, azeitona, cebola, orégano e azeite', price: 42.00, emoji: '🍕' },
-  { id: 13, name: 'Pizza Frango 6 fatias', category: 'pizza', size: '6', description: 'Molho, frango desfiado, milho, presunto, mussarela, tomate, azeitona, cebola, orégano e azeite', price: 44.00, emoji: '🍕' },
-  { id: 14, name: 'Pizza à moda da casa frango 6 fatias', category: 'pizza', size: '6', description: 'Molho, frango desfiado, presunto, salsicha, milho, mussarela, calabresa, bacon, tomate, azeitona, cebola, orégano e azeite', price: 45.00, emoji: '🍕' },
-  { id: 15, name: 'Pizza à moda da casa carne moída 6 fatias', category: 'pizza', size: '6', description: 'Molho, carne moída, presunto, salsicha, milho, mussarela, calabresa, bacon, tomate, azeitona, cebola, orégano e azeite', price: 45.00, emoji: '🍕' },
-  { id: 16, name: 'Pizza Bacon simples/econômica 6 fatias', category: 'pizza', size: '6', description: 'Molho, mussarela, bacon, tomate, cebola, azeite', price: 37.00, emoji: '🍕' },
-  { id: 17, name: 'Pizza Mussarela 4 fatias', category: 'pizza', size: '4', description: 'Molho de tomate, milho verde, presunto, mussarela, azeitonas verdes, tomate, cebola, orégano e azeite', price: 25.00, emoji: '🍕' },
-  { id: 18, name: 'Pizza Calabresa 4 fatias', category: 'pizza', size: '4', description: 'Molho especial de tomate, milho, presunto, mussarela, calabresa fatiada, azeitona, tomate, cebola, orégano e azeite', price: 30.00, emoji: '🍕' },
-  { id: 203, name: 'Pizza Calabresa simples/econômica 4 fatias', category: 'pizza', size: '4', description: 'Molho, calabresa fatiada, cebola, mussarela, azeitonas verdes, orégano', price: 25.00, emoji: '🍕' },
-  { id: 19, name: 'Pizza Bacon 4 fatias', category: 'pizza', size: '4', description: 'Molho de tomate, milho, presunto, mussarela, bacon fatiado, tomate, azeitona, cebola, orégano e azeite', price: 31.00, emoji: '🍕' },
-  { id: 20, name: 'Pizza Mexicana 4 fatias', category: 'pizza', size: '4', description: 'Molho, carne moída, milho, presunto, mussarela, tomate, azeitona, cebola, orégano e azeite', price: 32.00, emoji: '🍕' },
-  { id: 21, name: 'Pizza Frango 4 fatias', category: 'pizza', size: '4', description: 'Molho, frango desfiado, milho, presunto, mussarela, tomate, azeitona, cebola, orégano e azeite', price: 32.00, emoji: '🍕' },
-  { id: 22, name: 'Pizza à moda da casa frango 4 fatias', category: 'pizza', size: '4', description: 'Molho, frango desfiado, presunto, salsicha, milho, mussarela, calabresa, bacon, tomate, azeitona, cebola, orégano e azeite', price: 32.00, emoji: '🍕' },
-  { id: 23, name: 'Pizza à moda da casa carne moída 4 fatias', category: 'pizza', size: '4', description: 'Molho, carne moída, presunto, salsicha, milho, mussarela, calabresa, bacon, tomate, azeitona, cebola, orégano e azeite', price: 32.00, emoji: '🍕' },
-  { id: 24, name: 'Pizza Bacon simples/econômica 4 fatias', category: 'pizza', size: '4', description: 'Molho, mussarela, bacon, tomate, cebola, azeite', price: 27.00, emoji: '🍕' },
-  { id: 25, name: 'Pizza Mussarela Brotinho', category: 'pizza', size: 'brotinho', description: 'Molho de tomate, milho verde, presunto, mussarela, azeitonas verdes, tomate, cebola, orégano e azeite', price: 15.00, emoji: '🍕' },
-  { id: 26, name: 'Pizza Calabresa Brotinho', category: 'pizza', size: 'brotinho', description: 'Molho especial de tomate, milho, presunto, mussarela, calabresa fatiada, azeitona, tomate, cebola, orégano e azeite', price: 16.00, emoji: '🍕' },
-  { id: 204, name: 'Pizza Calabresa simples/econômica Brotinho', category: 'pizza', size: 'brotinho', description: 'Molho, calabresa fatiada, cebola, mussarela, azeitonas verdes, orégano', price: 15.00, emoji: '🍕' },
-  { id: 27, name: 'Pizza Bacon Brotinho', category: 'pizza', size: 'brotinho', description: 'Molho de tomate, milho, presunto, mussarela, bacon fatiado, tomate, azeitona, cebola, orégano e azeite', price: 17.00, emoji: '🍕' },
-  { id: 28, name: 'Pizza Mexicana Brotinho', category: 'pizza', size: 'brotinho', description: 'Molho, carne moída, milho, presunto, mussarela, tomate, azeitona, cebola, orégano e azeite', price: 18.00, emoji: '🍕' },
-  { id: 29, name: 'Pizza Frango Brotinho', category: 'pizza', size: 'brotinho', description: 'Molho, frango desfiado, milho, presunto, mussarela, tomate, azeitona, cebola, orégano e azeite', price: 19.00, emoji: '🍕' },
-  { id: 30, name: 'Pizza à moda da casa frango Brotinho', category: 'pizza', size: 'brotinho', description: 'Molho, frango desfiado, presunto, salsicha, milho, mussarela, calabresa, bacon, tomate, azeitona, cebola, orégano e azeite', price: 20.00, emoji: '🍕' },
-  { id: 31, name: 'Pizza à moda da casa carne moída Brotinho', category: 'pizza', size: 'brotinho', description: 'Molho, carne moída, presunto, salsicha, milho, mussarela, calabresa, bacon, tomate, azeitona, cebola, orégano e azeite', price: 20.00, emoji: '🍕' },
-  { id: 32, name: 'Pizza Bacon simples/econômica Brotinho', category: 'pizza', size: 'brotinho', description: 'Molho, mussarela, bacon, tomate, cebola, azeite', price: 17.00, emoji: '🍕' },
-  { id: 33, name: 'Coca-Cola 2L', category: 'bebida', description: 'Refrigerante gelado', price: 15.00, emoji: '🥤' },
-  { id: 34, name: 'Guaraná Antarctica 2L', category: 'bebida', description: 'Refrigerante gelado', price: 12.00, emoji: '🥤' },
+  { id: 2, name: 'Pizza Calabresa 8 fatias', category: 'pizza', size: '8', description: 'Molho especial de tomate, milho, presunto, mussarela, calabresa fatiada, azeitona, tomate, cebola, orégano e azeite,cheddar,catupiry', price: 65.00, emoji: '🍕' },
+  { id: 201, name: 'Pizza Calabresa simples/econômica 8 fatias', category: 'pizza', size: '8', description: 'Molho, calabresa fatiada, cebola, mussarela, azeitonas verdes, orégano ,cheddar,catupiry'', price: 50.00, emoji: '🍕' },
+  { id: 3, name: 'Pizza Bacon 8 fatias', category: 'pizza', size: '8', description: 'Molho de tomate, milho, presunto, mussarela, bacon fatiado, tomate, azeitona, cebola, orégano e azeite,cheddar,catupiry'', price: 66.00, emoji: '🍕' },
+  { id: 4, name: 'Pizza Mexicana 8 fatias', category: 'pizza', size: '8', description: 'Molho, carne moída, milho, presunto, mussarela, tomate, azeitona, cebola, orégano e azeite,cheddar,catupiry'', price: 70.00, emoji: '🍕' },
+  { id: 5, name: 'Pizza Frango 8 fatias', category: 'pizza', size: '8', description: 'Molho, frango desfiado, milho, presunto, mussarela, tomate, azeitona, cebola, orégano e azeite,cheddar,catupiry'', price: 70.00, emoji: '🍕' },
+  { id: 6, name: 'Pizza à moda da casa frango 8 fatias', category: 'pizza', size: '8', description: 'Molho, frango desfiado, presunto, salsicha, milho, mussarela, calabresa, bacon, tomate, azeitona, cebola, orégano e azeite,cheddar,catupiry'', price: 72.00, emoji: '🍕' },
+  { id: 7, name: 'Pizza à moda da casa carne moída 8 fatias', category: 'pizza', size: '8', description: 'Molho, carne moída, presunto, salsicha, milho, mussarela, calabresa, bacon, tomate, azeitona, cebola, orégano e azeite,cheddar,catupiry'', price: 72.00, emoji: '🍕' },
+  { id: 8, name: 'Pizza Bacon simples/econômica 8 fatias', category: 'pizza', size: '8', description: 'Molho, mussarela, bacon, tomate, cebola, azeite,cheddar,catupiry'', price: 52.00, emoji: '🍕' },
+  { id: 9, name: 'Pizza Mussarela 6 fatias', category: 'pizza', size: '6', description: 'Molho de tomate, milho verde, presunto, mussarela, azeitonas verdes, tomate, cebola, orégano e azeite,cheddar,catupiry'', price: 35.00, emoji: '🍕' },
+  { id: 10, name: 'Pizza Calabresa 6 fatias', category: 'pizza', size: '6', description: 'Molho especial de tomate, milho, presunto, mussarela, calabresa fatiada, azeitona, tomate, cebola, orégano e azeite,cheddar,catupiry'', price: 40.00, emoji: '🍕' },
+  { id: 202, name: 'Pizza Calabresa simples/econômica 6 fatias', category: 'pizza', size: '6', description: 'Molho, calabresa fatiada, cebola, mussarela, azeitonas verdes, orégano,cheddar,catupiry'', price: 33.00, emoji: '🍕' },
+  { id: 11, name: 'Pizza Bacon 6 fatias', category: 'pizza', size: '6', description: 'Molho de tomate, milho, presunto, mussarela, bacon fatiado, tomate, azeitona, cebola, orégano e azeite,cheddar,catupiry'', price: 41.00, emoji: '🍕' },
+  { id: 12, name: 'Pizza Mexicana 6 fatias', category: 'pizza', size: '6', description: 'Molho, carne moída, milho, presunto, mussarela, tomate, azeitona, cebola, orégano e azeite,cheddar,catupiry'', price: 42.00, emoji: '🍕' },
+  { id: 13, name: 'Pizza Frango 6 fatias', category: 'pizza', size: '6', description: 'Molho, frango desfiado, milho, presunto, mussarela, tomate, azeitona, cebola, orégano e azeite,cheddar,catupiry'', price: 44.00, emoji: '🍕' },
+  { id: 14, name: 'Pizza à moda da casa frango 6 fatias', category: 'pizza', size: '6', description: 'Molho, frango desfiado, presunto, salsicha, milho, mussarela, calabresa, bacon, tomate, azeitona, cebola, orégano e azeite,cheddar,catupiry'', price: 45.00, emoji: '🍕' },
+  { id: 15, name: 'Pizza à moda da casa carne moída 6 fatias', category: 'pizza', size: '6', description: 'Molho, carne moída, presunto, salsicha, milho, mussarela, calabresa, bacon, tomate, azeitona, cebola, orégano e azeite,cheddar,catupiry'', price: 45.00, emoji: '🍕' },
+  { id: 16, name: 'Pizza Bacon simples/econômica 6 fatias', category: 'pizza', size: '6', description: 'Molho, mussarela, bacon, tomate, cebola, azeite,cheddar,catupiry'', price: 37.00, emoji: '🍕' },
+  { id: 17, name: 'Pizza Mussarela 4 fatias', category: 'pizza', size: '4', description: 'Molho de tomate, milho verde, presunto, mussarela, azeitonas verdes, tomate, cebola, orégano e azeite,cheddar,catupiry'', price: 25.00, emoji: '🍕' },
+  { id: 18, name: 'Pizza Calabresa 4 fatias', category: 'pizza', size: '4', description: 'Molho especial de tomate, milho, presunto, mussarela, calabresa fatiada, azeitona, tomate, cebola, orégano e azeite,cheddar,catupiry'', price: 30.00, emoji: '🍕' },
+  { id: 203, name: 'Pizza Calabresa simples/econômica 4 fatias', category: 'pizza', size: '4', description: 'Molho, calabresa fatiada, cebola, mussarela, azeitonas verdes, orégano,cheddar,catupiry'', price: 25.00, emoji: '🍕' },
+  { id: 19, name: 'Pizza Bacon 4 fatias', category: 'pizza', size: '4', description: 'Molho de tomate, milho, presunto, mussarela, bacon fatiado, tomate, azeitona, cebola, orégano e azeite,cheddar,catupiry'', price: 31.00, emoji: '🍕' },
+  { id: 20, name: 'Pizza Mexicana 4 fatias', category: 'pizza', size: '4', description: 'Molho, carne moída, milho, presunto, mussarela, tomate, azeitona, cebola, orégano e azeite,cheddar,catupiry'', price: 32.00, emoji: '🍕' },
+  { id: 21, name: 'Pizza Frango 4 fatias', category: 'pizza', size: '4', description: 'Molho, frango desfiado, milho, presunto, mussarela, tomate, azeitona, cebola, orégano e azeite,cheddar,catupiry'', price: 32.00, emoji: '🍕' },
+  { id: 22, name: 'Pizza à moda da casa frango 4 fatias', category: 'pizza', size: '4', description: 'Molho, frango desfiado, presunto, salsicha, milho, mussarela, calabresa, bacon, tomate, azeitona, cebola, orégano e azeite,cheddar,catupiry'', price: 32.00, emoji: '🍕' },
+  { id: 23, name: 'Pizza à moda da casa carne moída 4 fatias', category: 'pizza', size: '4', description: 'Molho, carne moída, presunto, salsicha, milho, mussarela, calabresa, bacon, tomate, azeitona, cebola, orégano e azeite,cheddar,catupiry'', price: 32.00, emoji: '🍕' },
+  { id: 24, name: 'Pizza Bacon simples/econômica 4 fatias', category: 'pizza', size: '4', description: 'Molho, mussarela, bacon, tomate, cebola, azeite,cheddar,catupiry'', price: 27.00, emoji: '🍕' },
+  { id: 25, name: 'Pizza Mussarela Brotinho', category: 'pizza', size: 'brotinho', description: 'Molho de tomate, milho verde, presunto, mussarela, azeitonas verdes, tomate, cebola, orégano e azeite,cheddar,catupiry'', price: 15.00, emoji: '🍕' },
+  { id: 26, name: 'Pizza Calabresa Brotinho', category: 'pizza', size: 'brotinho', description: 'Molho especial de tomate, milho, presunto, mussarela, calabresa fatiada, azeitona, tomate, cebola, orégano e azeite,cheddar,catupiry', price: 16.00, emoji: '🍕' },
+  { id: 204, name: 'Pizza Calabresa simples/econômica Brotinho', category: 'pizza', size: 'brotinho', description: 'Molho, calabresa fatiada, cebola, mussarela, azeitonas verdes, orégano,cheddar,catupiry', price: 15.00, emoji: '🍕' },
+  { id: 27, name: 'Pizza Bacon Brotinho', category: 'pizza', size: 'brotinho', description: 'Molho de tomate, milho, presunto, mussarela, bacon fatiado, tomate, azeitona, cebola, orégano e azeite,cheddar,catupiry', price: 17.00, emoji: '🍕' },
+  { id: 28, name: 'Pizza Mexicana Brotinho', category: 'pizza', size: 'brotinho', description: 'Molho, carne moída, milho, presunto, mussarela, tomate, azeitona, cebola, orégano e azeite,cheddar,catupiry', price: 18.00, emoji: '🍕' },
+  { id: 29, name: 'Pizza Frango Brotinho', category: 'pizza', size: 'brotinho', description: 'Molho, frango desfiado, milho, presunto, mussarela, tomate, azeitona, cebola, orégano e azeite,cheddar,catupiry', price: 19.00, emoji: '🍕' },
+  { id: 30, name: 'Pizza à moda da casa frango Brotinho', category: 'pizza', size: 'brotinho', description: 'Molho, frango desfiado, presunto, salsicha, milho, mussarela, calabresa, bacon, tomate, azeitona, cebola, orégano e azeite,cheddar,catupiry', price: 20.00, emoji: '🍕' },
+  { id: 31, name: 'Pizza à moda da casa carne moída Brotinho', category: 'pizza', size: 'brotinho', description: 'Molho, carne moída, presunto, salsicha, milho, mussarela, calabresa, bacon, tomate, azeitona, cebola, orégano e azeite,cheddar,catupiry', price: 20.00, emoji: '🍕' },
+  { id: 32, name: 'Pizza Bacon simples/econômica Brotinho', category: 'pizza', size: 'brotinho', description: 'Molho, mussarela, bacon, tomate, cebola, azeite,cheddar,catupiry', price: 17.00, emoji: '🍕' },
+  { id: 33, name: 'Coca-Cola 2L', category: 'bebida', description: 'Refrigerante gelado', price: 13.00, emoji: '🥤' },
+  { id: 34, name: 'Guaraná Antarctica 2L', category: 'bebida', description: 'Refrigerante gelado', price: 11.00, emoji: '🥤' },
   { id: 35, name: 'Cerveja Antarctica 15 latas palito', category: 'bebida', description: 'Caixa de cerveja gelada', price: 60.00, emoji: '🍺' },
   { id: 36, name: 'Cerveja Skol 15 latas palito', category: 'bebida', description: 'Caixa de cerveja gelada', price: 60.00, emoji: '🍺' },
   { id: 37, name: 'Cerveja Antarctica lata palito (Unidade)', category: 'bebida', description: 'Cerveja gelada', price: 5.00, emoji: '🍺' },
