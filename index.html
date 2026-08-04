@@ -231,22 +231,51 @@ h1,h2,h3,h4 { font-family: 'Space Grotesk', sans-serif; }
 
 .ing-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
-  gap: 8px;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 10px;
 }
 .ing {
   background: var(--bg2); border: 1.5px solid var(--border);
-  border-radius: var(--radius-sm); padding: 12px 8px;
+  border-radius: var(--radius-sm); padding: 12px 8px 10px;
   text-align: center; cursor: pointer; transition: all .2s;
   display: flex; flex-direction: column; align-items: center; gap: 4px;
-  user-select: none; min-height: 95px; justify-content: center;
+  user-select: none; min-height: 110px; justify-content: flex-start;
 }
 .ing:hover { border-color: var(--border-hover); }
-.ing.selected { background: var(--accent); border-color: var(--accent); color: #000; }
-.ing-emoji { font-size: 28px; }
+.ing.selected { background: var(--accent-dim); border-color: var(--accent); color: var(--text); }
+.ing-emoji { font-size: 26px; }
 .ing-name { font-size: 11px; font-weight: 600; line-height: 1.2; }
 .ing-price { font-size: 10px; color: var(--text3); }
-.ing.selected .ing-price { color: rgba(0,0,0,0.6); }
+.ing.selected .ing-price { color: var(--accent); font-weight: 700; }
+.ing-qty {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin-top: 6px;
+  width: 100%;
+}
+.ing.selected .ing-qty { display: flex; }
+.ing-qty-btn {
+  width: 28px; height: 28px; border-radius: 8px;
+  background: var(--bg3); border: 1px solid var(--border);
+  color: var(--text); font-size: 16px; font-weight: 700;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  font-family: inherit; transition: all .15s; flex-shrink: 0;
+}
+.ing-qty-btn:hover { border-color: var(--accent); color: var(--accent); }
+.ing-qty-val {
+  font-size: 11px; font-weight: 700; min-width: 42px; text-align: center;
+  color: var(--accent);
+}
+.ing-remove {
+  display: none;
+  margin-top: 4px;
+  background: none; border: none; color: var(--red);
+  font-size: 11px; font-weight: 600; cursor: pointer; font-family: inherit;
+  padding: 2px 6px;
+}
+.ing.selected .ing-remove { display: block; }
 
 .builder-summary {
   background: var(--card); border: 1.5px solid var(--border);
@@ -257,9 +286,11 @@ h1,h2,h3,h4 { font-family: 'Space Grotesk', sans-serif; }
 .summary-item {
   display: flex; justify-content: space-between; align-items: center;
   padding: 8px 0; border-bottom: 1px solid var(--border);
-  font-size: 13px;
+  font-size: 13px; gap: 8px;
 }
 .summary-item:last-child { border-bottom: none; }
+.summary-item .sum-left { display: flex; flex-direction: column; gap: 2px; }
+.summary-item .sum-grams { font-size: 11px; color: var(--text3); }
 .summary-empty { text-align: center; color: var(--text3); font-size: 13px; padding: 24px 0; }
 .summary-total {
   display: flex; justify-content: space-between; align-items: center;
@@ -465,6 +496,34 @@ h1,h2,h3,h4 { font-family: 'Space Grotesk', sans-serif; }
 .btn-add-detail:hover { background: var(--accent2); }
 .btn-add-detail:active { transform: scale(0.98); }
 
+/* Quantidade no modal de produto */
+.product-qty-row {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 16px; margin: 10px 0 0;
+  background: var(--card); border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm); gap: 12px;
+}
+.product-qty-row .qty-label { font-size: 13px; color: var(--text2); font-weight: 600; }
+.product-qty-controls {
+  display: flex; align-items: center; gap: 10px;
+}
+.product-qty-controls .qty-btn {
+  width: 36px; height: 36px; border-radius: 10px;
+  background: var(--bg3); border: 1.5px solid var(--border);
+  color: var(--text); font-size: 18px; font-weight: 700;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  transition: all .15s; font-family: inherit;
+}
+.product-qty-controls .qty-btn:hover { border-color: var(--accent); color: var(--accent); }
+.product-qty-controls .qty-val {
+  font-size: 18px; font-weight: 800; min-width: 32px; text-align: center;
+  font-family: 'Space Grotesk', sans-serif; color: var(--text);
+}
+.product-subtotal-hint {
+  font-size: 12px; color: var(--text3); text-align: right; margin-top: 6px;
+}
+.product-subtotal-hint strong { color: var(--accent); font-weight: 700; }
+
 /* EMPTY */
 .empty { text-align: center; padding: 48px 16px; color: var(--text3); }
 .empty-icon { font-size: 48px; margin-bottom: 12px; }
@@ -575,7 +634,7 @@ h1,h2,h3,h4 { font-family: 'Space Grotesk', sans-serif; }
     <div class="promo-icon">🛠️</div>
     <div class="promo-text">
       <h3>Monte a sua Pizza do seu jeito!</h3>
-      <p>Clique aqui para escolher massa, molho, queijos, carnes e vegetais. O resumo do pedido fica logo abaixo dos ingredientes.</p>
+      <p>Clique aqui para escolher massa, molho, queijos, carnes e vegetais. Você define a quantidade em gramas (50g a 250g) e o preço é calculado automaticamente.</p>
     </div>
   </div>
 
@@ -670,12 +729,21 @@ h1,h2,h3,h4 { font-family: 'Space Grotesk', sans-serif; }
       <div class="product-size-badge" id="prodSize" style="display:none"></div>
     </div>
     <div class="modal-body" style="padding-top:0">
-      <div class="product-ings-title">Ingredientes</div>
+      <div class="product-ings-title" id="prodIngsTitle">Ingredientes</div>
       <ul class="product-ings-list" id="prodIngs"></ul>
       <div class="product-price-row">
-        <span class="label">Preço</span>
+        <span class="label">Preço unitário</span>
         <span class="price" id="prodPrice">R$ 0,00</span>
       </div>
+      <div class="product-qty-row">
+        <span class="qty-label">Quantidade</span>
+        <div class="product-qty-controls">
+          <button class="qty-btn" onclick="changeProdQty(-1)" aria-label="Diminuir">−</button>
+          <span class="qty-val" id="prodQtyVal">1</span>
+          <button class="qty-btn" onclick="changeProdQty(1)" aria-label="Aumentar">+</button>
+        </div>
+      </div>
+      <div class="product-subtotal-hint" id="prodSubtotalHint">Subtotal: <strong>R$ 0,00</strong></div>
     </div>
     <div class="modal-actions">
       <button class="btn-add-detail" id="prodAddBtn" onclick="addFromDetail()">+ Adicionar ao carrinho</button>
@@ -742,28 +810,32 @@ const PRODUCTS = [
 ];
 
 const INGREDIENTS = [
-  { id: 'massa1', category: 'massa', name: 'Massa 8 fatias', emoji: '🍕', price: 3.50 },
-  { id: 'massa2', category: 'massa', name: 'Massa 6 fatias', emoji: '🍕', price: 3.25 },
-  { id: 'massa3', category: 'massa', name: 'Massa 4 fatias', emoji: '🍕', price: 3.00 },
-  { id: 'massa4', category: 'massa', name: 'Massa Brotinho', emoji: '🍕', price: 2.00 },
-  { id: 'mol1', category: 'molho', name: 'Molho 100g', emoji: '🫙', price: 2.10 },
-  { id: 'que1', category: 'queijo', name: 'Mussarela 100g', emoji: '🧀', price: 10.00 },
-  { id: 'que2', category: 'queijo', name: 'Cheddar 100g', emoji: '🧀', price: 3.50 },
-  { id: 'que3', category: 'queijo', name: 'Catupiry 100g', emoji: '🧀', price: 3.50 },
-  { id: 'car1', category: 'carnes', name: 'Calabresa 100g', emoji: '🥩', price: 4.00 },
-  { id: 'car2', category: 'carnes', name: 'Presunto 100g', emoji: '🥩', price: 5.00 },
-  { id: 'car3', category: 'carnes', name: 'Salsicha 100g', emoji: '🌭', price: 3.00 },
-  { id: 'car4', category: 'carnes', name: 'Frango 100g', emoji: '🍗', price: 5.00 },
-  { id: 'car5', category: 'carnes', name: 'Carne moída 100g', emoji: '🥩', price: 6.00 },
-  { id: 'car6', category: 'carnes', name: 'Bacon 100g', emoji: '🥓', price: 6.00 },
-  { id: 'veg1', category: 'vegetais', name: 'Milho verde 100g', emoji: '🌽', price: 2.20 },
-  { id: 'veg2', category: 'vegetais', name: 'Azeitonas 100g', emoji: '🫒', price: 8.60 },
-  { id: 'veg3', category: 'vegetais', name: 'Cebola 100g', emoji: '🧅', price: 1.00 },
-  { id: 'veg6', category: 'vegetais', name: 'Tomate 100g', emoji: '🍅', price: 2.00 },
-  { id: 'ext1', category: 'extras', name: 'Azeite 100g', emoji: '🍶', price: 2.00 },
-  { id: 'ext2', category: 'extras', name: 'Orégano 100g', emoji: '🌿', price: 1.00 },
-  { id: 'ext3', category: 'extras', name: 'Ketchup 100g', emoji: '🍅', price: 1.00 },
+  { id: 'massa1', category: 'massa', name: 'Massa 8 fatias', emoji: '🍕', price: 3.50, fixed: true },
+  { id: 'massa2', category: 'massa', name: 'Massa 6 fatias', emoji: '🍕', price: 3.25, fixed: true },
+  { id: 'massa3', category: 'massa', name: 'Massa 4 fatias', emoji: '🍕', price: 3.00, fixed: true },
+  { id: 'massa4', category: 'massa', name: 'Massa Brotinho', emoji: '🍕', price: 2.00, fixed: true },
+  { id: 'mol1', category: 'molho', name: 'Molho', emoji: '🫙', price: 2.10 },
+  { id: 'que1', category: 'queijo', name: 'Mussarela', emoji: '🧀', price: 10.00 },
+  { id: 'que2', category: 'queijo', name: 'Cheddar', emoji: '🧀', price: 3.50 },
+  { id: 'que3', category: 'queijo', name: 'Catupiry', emoji: '🧀', price: 3.50 },
+  { id: 'car1', category: 'carnes', name: 'Calabresa', emoji: '🥩', price: 4.00 },
+  { id: 'car2', category: 'carnes', name: 'Presunto', emoji: '🥩', price: 5.00 },
+  { id: 'car3', category: 'carnes', name: 'Salsicha', emoji: '🌭', price: 3.00 },
+  { id: 'car4', category: 'carnes', name: 'Frango', emoji: '🍗', price: 5.00 },
+  { id: 'car5', category: 'carnes', name: 'Carne moída', emoji: '🥩', price: 6.00 },
+  { id: 'car6', category: 'carnes', name: 'Bacon', emoji: '🥓', price: 6.00 },
+  { id: 'veg1', category: 'vegetais', name: 'Milho verde', emoji: '🌽', price: 2.20 },
+  { id: 'veg2', category: 'vegetais', name: 'Azeitonas', emoji: '🫒', price: 8.60 },
+  { id: 'veg3', category: 'vegetais', name: 'Cebola', emoji: '🧅', price: 1.00 },
+  { id: 'veg6', category: 'vegetais', name: 'Tomate', emoji: '🍅', price: 2.00 },
+  { id: 'ext1', category: 'extras', name: 'Azeite', emoji: '🍶', price: 2.00 },
+  { id: 'ext2', category: 'extras', name: 'Orégano', emoji: '🌿', price: 1.00 },
+  { id: 'ext3', category: 'extras', name: 'Ketchup', emoji: '🍅', price: 1.00 },
 ];
+
+/* Opções de gramas (preço base = 100g). Preço = price * (grams / 100) */
+const GRAM_OPTIONS = [50, 75, 100, 150, 200, 250];
+const DEFAULT_GRAMS = 100;
 
 const ING_CATS = [
   { id: 'massa', label: 'Massa', emoji: '🍝' },
@@ -877,7 +949,7 @@ function renderProducts() {
         <div class="card-desc">${p.description}</div>
         <div class="card-footer">
           <span class="card-price">${fmt(p.price)}</span>
-          <button class="btn-add" onclick="event.stopPropagation();addToCart(${p.id})">+ Add</button>
+          <button class="btn-add" onclick="event.stopPropagation();openProduct(${p.id})">+ Add</button>
         </div>
       </div>
     </article>`;
@@ -886,6 +958,21 @@ function renderProducts() {
 }
 
 /* ========== BUILDER ========== */
+function ingPrice(ing, grams) {
+  if (ing.fixed) return ing.price;
+  return +(ing.price * (grams / 100)).toFixed(2);
+}
+
+function getSelectedList() {
+  return INGREDIENTS
+    .filter(i => selectedIngs[i.id])
+    .map(i => {
+      const grams = selectedIngs[i.id].grams;
+      const price = ingPrice(i, grams);
+      return { ...i, grams, calcPrice: price };
+    });
+}
+
 function renderBuilderCats() {
   document.getElementById('builderCats').innerHTML = ING_CATS.map(c =>
     `<button class="bcat ${activeIngCat === c.id ? 'active' : ''}" onclick="setIngCat('${c.id}')">${c.emoji} ${c.label}</button>`
@@ -900,32 +987,98 @@ function setIngCat(id) {
 
 function renderIngs() {
   const list = INGREDIENTS.filter(i => i.category === activeIngCat);
-  document.getElementById('ingGrid').innerHTML = list.map(i =>
-    `<div class="ing ${selectedIngs[i.id] ? 'selected' : ''}" onclick="toggleIng('${i.id}')">
+  document.getElementById('ingGrid').innerHTML = list.map(i => {
+    const sel = selectedIngs[i.id];
+    const grams = sel ? sel.grams : DEFAULT_GRAMS;
+    const price = ingPrice(i, grams);
+    const isFixed = !!i.fixed;
+
+    if (isFixed) {
+      return `<div class="ing ${sel ? 'selected' : ''}" onclick="toggleIng('${i.id}')">
+        <span class="ing-emoji">${i.emoji}</span>
+        <span class="ing-name">${i.name}</span>
+        <span class="ing-price">${fmt(i.price)}</span>
+        ${sel ? '<button class="ing-remove" onclick="event.stopPropagation();removeIng(\'' + i.id + '\')">Remover</button>' : ''}
+      </div>`;
+    }
+
+    return `<div class="ing ${sel ? 'selected' : ''}" onclick="toggleIng('${i.id}')">
       <span class="ing-emoji">${i.emoji}</span>
       <span class="ing-name">${i.name}</span>
-      <span class="ing-price">+${fmt(i.price)}</span>
-    </div>`
-  ).join('');
+      <span class="ing-price">${sel ? fmt(price) : 'a partir de ' + fmt(ingPrice(i, 50))}</span>
+      <div class="ing-qty" onclick="event.stopPropagation()">
+        <button class="ing-qty-btn" onclick="changeIngGrams('${i.id}', -1)" aria-label="Diminuir">−</button>
+        <span class="ing-qty-val">${grams}g</span>
+        <button class="ing-qty-btn" onclick="changeIngGrams('${i.id}', 1)" aria-label="Aumentar">+</button>
+      </div>
+      ${sel ? '<button class="ing-remove" onclick="event.stopPropagation();removeIng(\'' + i.id + '\')">Remover</button>' : ''}
+    </div>`;
+  }).join('');
 }
 
 function toggleIng(id) {
-  if (selectedIngs[id]) delete selectedIngs[id];
-  else selectedIngs[id] = true;
+  const ing = INGREDIENTS.find(x => x.id === id);
+  if (!ing) return;
+
+  if (selectedIngs[id]) {
+    // Já selecionado: clicar de novo não remove (usa botão Remover)
+    // Para massa fixa, clicar de novo remove
+    if (ing.fixed) {
+      delete selectedIngs[id];
+    }
+  } else {
+    // Massa: só uma por vez
+    if (ing.fixed) {
+      INGREDIENTS.filter(x => x.category === 'massa').forEach(m => delete selectedIngs[m.id]);
+    }
+    selectedIngs[id] = { grams: ing.fixed ? 100 : DEFAULT_GRAMS };
+  }
+  renderIngs();
+  updateSummary();
+}
+
+function removeIng(id) {
+  delete selectedIngs[id];
+  renderIngs();
+  updateSummary();
+}
+
+function changeIngGrams(id, direction) {
+  if (!selectedIngs[id]) {
+    // Se ainda não estava selecionado, seleciona e aplica o passo
+    const ing = INGREDIENTS.find(x => x.id === id);
+    if (!ing || ing.fixed) return;
+    const idx = GRAM_OPTIONS.indexOf(DEFAULT_GRAMS);
+    const nextIdx = Math.max(0, Math.min(GRAM_OPTIONS.length - 1, idx + direction));
+    selectedIngs[id] = { grams: GRAM_OPTIONS[nextIdx] };
+  } else {
+    const current = selectedIngs[id].grams;
+    let idx = GRAM_OPTIONS.indexOf(current);
+    if (idx < 0) idx = GRAM_OPTIONS.indexOf(DEFAULT_GRAMS);
+    const nextIdx = Math.max(0, Math.min(GRAM_OPTIONS.length - 1, idx + direction));
+    selectedIngs[id].grams = GRAM_OPTIONS[nextIdx];
+  }
   renderIngs();
   updateSummary();
 }
 
 function updateSummary() {
-  const sel = INGREDIENTS.filter(i => selectedIngs[i.id]);
-  const total = sel.reduce((s, i) => s + i.price, 0);
+  const sel = getSelectedList();
+  const total = sel.reduce((s, i) => s + i.calcPrice, 0);
   const el = document.getElementById('summaryList');
   if (!sel.length) {
     el.innerHTML = '<div class="summary-empty">Selecione os ingredientes</div>';
   } else {
-    el.innerHTML = sel.map(i =>
-      `<div class="summary-item"><span>${i.emoji} ${i.name}</span><span>${fmt(i.price)}</span></div>`
-    ).join('');
+    el.innerHTML = sel.map(i => {
+      const gramsLabel = i.fixed ? '' : `<span class="sum-grams">${i.grams}g</span>`;
+      return `<div class="summary-item">
+        <div class="sum-left">
+          <span>${i.emoji} ${i.name}</span>
+          ${gramsLabel}
+        </div>
+        <span>${fmt(i.calcPrice)}</span>
+      </div>`;
+    }).join('');
   }
   document.getElementById('builderTotal').textContent = fmt(total);
 }
@@ -937,16 +1090,22 @@ function clearBuilder() {
 }
 
 function addCustomToCart() {
-  const sel = INGREDIENTS.filter(i => selectedIngs[i.id]);
+  const sel = getSelectedList();
   if (!sel.length) { toast('Selecione pelo menos um ingrediente'); return; }
-  const total = sel.reduce((s, i) => s + i.price, 0);
+  const total = sel.reduce((s, i) => s + i.calcPrice, 0);
   cart.push({
     uid: Date.now(),
     name: 'Pizza Customizada',
     price: total,
     qty: 1,
     custom: true,
-    ings: sel.map(i => ({ name: i.name, emoji: i.emoji, price: i.price })),
+    ings: sel.map(i => ({
+      name: i.name,
+      emoji: i.emoji,
+      price: i.calcPrice,
+      grams: i.fixed ? null : i.grams,
+      fixed: !!i.fixed
+    })),
   });
   saveCart();
   clearBuilder();
@@ -955,6 +1114,7 @@ function addCustomToCart() {
 
 /* ========== PRODUCT DETAIL ========== */
 let currentProductId = null;
+let prodQty = 1;
 
 const SIZE_DISPLAY = {
   '8': '8 fatias',
@@ -963,10 +1123,29 @@ const SIZE_DISPLAY = {
   'brotinho': 'Brotinho',
 };
 
+function updateProdSubtotal() {
+  const p = PRODUCTS.find(x => x.id === currentProductId);
+  if (!p) return;
+  document.getElementById('prodQtyVal').textContent = prodQty;
+  const sub = p.price * prodQty;
+  document.getElementById('prodSubtotalHint').innerHTML =
+    `Subtotal: <strong>${fmt(sub)}</strong>` + (prodQty > 1 ? ` (${prodQty} × ${fmt(p.price)})` : '');
+  const btn = document.getElementById('prodAddBtn');
+  btn.textContent = prodQty === 1
+    ? '+ Adicionar ao carrinho'
+    : `+ Adicionar ${prodQty} ao carrinho`;
+}
+
+function changeProdQty(d) {
+  prodQty = Math.max(1, prodQty + d);
+  updateProdSubtotal();
+}
+
 function openProduct(id) {
   const p = PRODUCTS.find(x => x.id === id);
   if (!p) return;
   currentProductId = id;
+  prodQty = 1;
 
   document.getElementById('prodEmoji').textContent = p.emoji || '🍕';
   document.getElementById('prodName').textContent = p.name;
@@ -980,39 +1159,58 @@ function openProduct(id) {
     sizeEl.style.display = 'none';
   }
 
-  // Split description into clear ingredient list
-  const raw = (p.description || '').replace(/\s+e\s+/gi, ', ').replace(/\.$/, '');
-  const parts = raw.split(/,\s*/).map(s => s.trim()).filter(Boolean);
+  // Título e lista de ingredientes / descrição
+  const ingsTitle = document.getElementById('prodIngsTitle');
   const list = document.getElementById('prodIngs');
-  if (parts.length) {
-    list.innerHTML = parts.map(ing => `<li>${ing.charAt(0).toUpperCase() + ing.slice(1)}</li>`).join('');
+  if (p.category === 'pizza' && p.description) {
+    ingsTitle.style.display = 'block';
+    list.style.display = 'flex';
+    const raw = (p.description || '').replace(/\s+e\s+/gi, ', ').replace(/\.$/, '');
+    const parts = raw.split(/,\s*/).map(s => s.trim()).filter(Boolean);
+    if (parts.length) {
+      list.innerHTML = parts.map(ing => `<li>${ing.charAt(0).toUpperCase() + ing.slice(1)}</li>`).join('');
+    } else {
+      list.innerHTML = '<li>Sem descrição de ingredientes</li>';
+    }
+  } else if (p.description) {
+    ingsTitle.style.display = 'block';
+    ingsTitle.textContent = 'Descrição';
+    list.style.display = 'flex';
+    list.innerHTML = `<li>${p.description}</li>`;
   } else {
-    list.innerHTML = '<li>Sem descrição de ingredientes</li>';
+    ingsTitle.style.display = 'none';
+    list.style.display = 'none';
+    list.innerHTML = '';
   }
+  // Restaura título padrão para pizzas
+  if (p.category === 'pizza') ingsTitle.textContent = 'Ingredientes';
 
+  updateProdSubtotal();
   document.getElementById('productModal').classList.add('open');
 }
 
 function closeProduct() {
   document.getElementById('productModal').classList.remove('open');
   currentProductId = null;
+  prodQty = 1;
 }
 
 function addFromDetail() {
   if (currentProductId == null) return;
-  addToCart(currentProductId);
+  addToCart(currentProductId, prodQty);
   closeProduct();
 }
 
 /* ========== CART ========== */
-function addToCart(id) {
+function addToCart(id, qty = 1) {
   const p = PRODUCTS.find(x => x.id === id);
   if (!p) return;
+  const q = Math.max(1, qty | 0);
   const existing = cart.find(x => x.id === id && !x.custom);
-  if (existing) existing.qty++;
-  else cart.push({ uid: Date.now(), id: p.id, name: p.name, price: p.price, qty: 1, custom: false });
+  if (existing) existing.qty += q;
+  else cart.push({ uid: Date.now(), id: p.id, name: p.name, price: p.price, qty: q, custom: false });
   saveCart();
-  toast(`${p.emoji} ${p.name} adicionado!`);
+  toast(`${p.emoji} ${q > 1 ? q + '× ' : ''}${p.name} adicionado!`);
 }
 
 function saveCart() {
@@ -1050,7 +1248,10 @@ function updateCartUI() {
   body.innerHTML = cart.map((item, idx) => {
     let detail = '';
     if (item.custom && item.ings) {
-      detail = `<div class="cart-item-detail">${item.ings.map(i => i.emoji + ' ' + i.name).join(', ')}</div>`;
+      detail = `<div class="cart-item-detail">${item.ings.map(i => {
+        const g = i.grams ? ` ${i.grams}g` : '';
+        return `${i.emoji} ${i.name}${g}`;
+      }).join(', ')}</div>`;
     }
     return `<div class="cart-item">
       <div class="cart-item-top">
@@ -1096,7 +1297,10 @@ function openCheckout() {
   document.getElementById('checkoutBody').innerHTML = cart.map(item => {
     let detail = '';
     if (item.custom && item.ings) {
-      detail = `<div class="checkout-item-detail">Ingredientes: ${item.ings.map(i => i.emoji + ' ' + i.name + ' (' + fmt(i.price) + ')').join(', ')}</div>`;
+      detail = `<div class="checkout-item-detail">Ingredientes: ${item.ings.map(i => {
+        const g = i.grams ? ` ${i.grams}g` : '';
+        return `${i.emoji} ${i.name}${g} (${fmt(i.price)})`;
+      }).join(', ')}</div>`;
     }
     return `<div class="checkout-item">
       <div class="checkout-item-name">${item.qty}x ${item.name}</div>
@@ -1140,7 +1344,8 @@ function sendWhatsApp() {
     if (item.custom && item.ings && item.ings.length) {
       msg += '   🧂 *Ingredientes:*\n';
       item.ings.forEach(ing => {
-        msg += `      • ${ing.emoji || '•'} ${ing.name} — ${fmt(ing.price)}\n`;
+        const g = ing.grams ? ` (${ing.grams}g)` : '';
+        msg += `      • ${ing.emoji || '•'} ${ing.name}${g} — ${fmt(ing.price)}\n`;
       });
     } else if (item.id) {
       const prod = PRODUCTS.find(p => p.id === item.id);
