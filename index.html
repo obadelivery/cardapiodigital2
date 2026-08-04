@@ -215,19 +215,24 @@ h1,h2,h3,h4 { font-family: 'Space Grotesk', sans-serif; }
 }
 .builder-panel h3 { font-size: 15px; font-weight: 700; margin-bottom: 12px; }
 .builder-cats {
-  display: flex; gap: 6px; overflow-x: auto; margin-bottom: 14px;
-  scrollbar-width: none; -webkit-overflow-scrolling: touch;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 14px;
 }
-.builder-cats::-webkit-scrollbar { display: none; }
 .bcat {
-  flex-shrink: 0; padding: 8px 14px;
-  border: 1.5px solid var(--border); background: transparent;
-  border-radius: 8px; color: var(--text2); font-size: 12px; font-weight: 600;
+  padding: 12px 8px;
+  border: 1.5px solid var(--border); background: var(--bg2);
+  border-radius: 10px; color: var(--text2); font-size: 12px; font-weight: 600;
   cursor: pointer; font-family: inherit; transition: all .15s;
-  white-space: nowrap; min-height: 38px;
+  white-space: nowrap; min-height: 52px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;
+  text-align: center;
 }
-.bcat:hover { border-color: var(--border-hover); color: var(--text); }
+.bcat:hover { border-color: var(--border-hover); color: var(--text); background: var(--bg3); }
 .bcat.active { background: var(--accent); border-color: var(--accent); color: #000; }
+.bcat .bcat-emoji { font-size: 20px; line-height: 1; }
+.bcat .bcat-label { font-size: 11px; font-weight: 700; letter-spacing: 0.2px; }
 
 .ing-grid {
   display: grid;
@@ -975,7 +980,10 @@ function getSelectedList() {
 
 function renderBuilderCats() {
   document.getElementById('builderCats').innerHTML = ING_CATS.map(c =>
-    `<button class="bcat ${activeIngCat === c.id ? 'active' : ''}" onclick="setIngCat('${c.id}')">${c.emoji} ${c.label}</button>`
+    `<button class="bcat ${activeIngCat === c.id ? 'active' : ''}" onclick="setIngCat('${c.id}')">
+      <span class="bcat-emoji">${c.emoji}</span>
+      <span class="bcat-label">${c.label}</span>
+    </button>`
   ).join('');
 }
 
