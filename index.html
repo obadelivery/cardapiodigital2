@@ -205,10 +205,9 @@ h1,h2,h3,h4 { font-family: 'Space Grotesk', sans-serif; }
 .builder { display: none; }
 .builder.show { display: block; }
 .builder-layout {
-  display: grid; gap: 16px;
-}
-@media (min-width: 768px) {
-  .builder-layout { grid-template-columns: 1fr 320px; align-items: start; }
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 .builder-panel {
   background: var(--card); border: 1.5px solid var(--border);
@@ -252,10 +251,9 @@ h1,h2,h3,h4 { font-family: 'Space Grotesk', sans-serif; }
 .builder-summary {
   background: var(--card); border: 1.5px solid var(--border);
   border-radius: var(--radius); padding: 16px;
-  position: sticky; top: 80px;
 }
 .builder-summary h3 { font-size: 15px; font-weight: 700; margin-bottom: 12px; }
-.summary-list { max-height: 240px; overflow-y: auto; margin-bottom: 12px; }
+.summary-list { max-height: 320px; overflow-y: auto; margin-bottom: 12px; }
 .summary-item {
   display: flex; justify-content: space-between; align-items: center;
   padding: 8px 0; border-bottom: 1px solid var(--border);
@@ -494,6 +492,9 @@ h1,h2,h3,h4 { font-family: 'Space Grotesk', sans-serif; }
 .promo-banner .promo-icon { font-size: 32px; }
 .promo-banner .promo-text h3 { font-size: 14px; font-weight: 700; color: var(--accent); margin-bottom: 2px; }
 .promo-banner .promo-text p { font-size: 12px; color: var(--text2); line-height: 1.4; }
+.promo-banner.clickable { transition: transform .15s, box-shadow .15s; }
+.promo-banner.clickable:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(245,158,11,0.2); }
+.promo-banner.clickable:active { transform: scale(0.99); }
 
 /* FLOATING CART (mobile) */
 .fab {
@@ -569,6 +570,15 @@ h1,h2,h3,h4 { font-family: 'Space Grotesk', sans-serif; }
     </div>
   </div>
 
+  <!-- Monte sua pizza (botão de acesso) -->
+  <div class="promo-banner clickable" id="btnMontePizza" onclick="openBuilder()" style="cursor: pointer; border-color: rgba(245,158,11,0.45); background: linear-gradient(135deg, rgba(245,158,11,0.18), rgba(217,119,6,0.08));">
+    <div class="promo-icon">🛠️</div>
+    <div class="promo-text">
+      <h3>Monte a sua Pizza do seu jeito!</h3>
+      <p>Clique aqui para escolher massa, molho, queijos, carnes e vegetais. O resumo do pedido fica logo abaixo dos ingredientes.</p>
+    </div>
+  </div>
+
   <!-- Categories -->
   <nav class="cats" id="cats" role="tablist"></nav>
 
@@ -581,7 +591,10 @@ h1,h2,h3,h4 { font-family: 'Space Grotesk', sans-serif; }
   <div class="builder" id="builderView">
     <div class="builder-layout">
       <div class="builder-panel">
-        <h3>🍕 Monte a sua Pizza como quiser</h3>
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px;flex-wrap:wrap;">
+          <h3 style="margin:0;">🍕 Monte a sua Pizza como quiser</h3>
+          <button class="btn-builder btn-builder-secondary" style="width:auto;margin:0;padding:8px 14px;min-height:38px;font-size:12px;" onclick="setFilter('all')">← Voltar ao cardápio</button>
+        </div>
         <div class="builder-cats" id="builderCats"></div>
         <div class="ing-grid" id="ingGrid"></div>
       </div>
@@ -764,7 +777,6 @@ const ING_CATS = [
 const CATS = [
   { id: 'all', label: 'Todos', emoji: '✨' },
   { id: 'pizza', label: 'Pizzas', emoji: '🍕' },
-  { id: 'monte', label: 'Monte sua', emoji: '🛠️' },
   { id: 'bebida', label: 'Bebidas', emoji: '🥤' },
   { id: 'supermercado', label: 'Mercado', emoji: '🛒' },
 ];
@@ -783,6 +795,7 @@ let cart = [];
 let filter = 'all';
 let selectedIngs = {};
 let activeIngCat = 'massa';
+let builderOpen = false;
 
 /* ========== HELPERS ========== */
 const fmt = v => 'R$ ' + v.toFixed(2).replace('.', ',');
@@ -806,22 +819,32 @@ function renderCats() {
 
 function setFilter(id) {
   filter = id;
+  builderOpen = false;
   renderCats();
   const pv = document.getElementById('productsView');
   const bv = document.getElementById('builderView');
-  if (id === 'monte') {
-    pv.style.display = 'none';
-    bv.classList.add('show');
-    selectedIngs = {};
-    activeIngCat = 'massa';
-    renderBuilderCats();
-    renderIngs();
-    updateSummary();
-  } else {
-    pv.style.display = 'block';
-    bv.classList.remove('show');
-    renderProducts();
-  }
+  pv.style.display = 'block';
+  bv.classList.remove('show');
+  renderProducts();
+  // Volta pro topo das categorias / produtos
+  document.getElementById('cats').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function openBuilder() {
+  builderOpen = true;
+  filter = null; // nenhuma categoria ativa
+  renderCats();
+  const pv = document.getElementById('productsView');
+  const bv = document.getElementById('builderView');
+  pv.style.display = 'none';
+  bv.classList.add('show');
+  selectedIngs = {};
+  activeIngCat = 'massa';
+  renderBuilderCats();
+  renderIngs();
+  updateSummary();
+  // Rola até o montador
+  bv.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 /* ========== RENDER PRODUCTS ========== */
