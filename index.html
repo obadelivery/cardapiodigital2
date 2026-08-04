@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=5">
-<title>Oba Dellivery — Cardápio Digital</title>
+<title>Oba Dellivery Pizzas & Mercadinho Express— Cardápio e catálogo Digital</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
@@ -522,7 +522,7 @@ h1,h2,h3,h4 { font-family: 'Space Grotesk', sans-serif; }
 
 <div class="loader" id="loader">
   <div class="loader-ring"></div>
-  <p>Carregando cardápio…</p>
+  <p>Carregando cardápio/catálogo…</p>
 </div>
 
 <header class="header">
@@ -530,8 +530,8 @@ h1,h2,h3,h4 { font-family: 'Space Grotesk', sans-serif; }
     <div class="brand">
       <div class="brand-icon">🍕</div>
       <div>
-        <h1>Oba Dellivery</h1>
-        <span>Cardápio Digital</span>
+        <h1>Oba Dellivery Pizzas & Mercadinho Express</h1>
+        <span>Cardápio/Catálogo Digital</span>
       </div>
     </div>
     <button class="btn-cart" onclick="openCart()" aria-label="Abrir carrinho">
@@ -572,7 +572,7 @@ h1,h2,h3,h4 { font-family: 'Space Grotesk', sans-serif; }
   <div class="builder" id="builderView">
     <div class="builder-layout">
       <div class="builder-panel">
-        <h3>🍕 Monte sua Pizza</h3>
+        <h3>🍕 Montar Pizza</h3>
         <div class="builder-cats" id="builderCats"></div>
         <div class="ing-grid" id="ingGrid"></div>
       </div>
@@ -1093,11 +1093,11 @@ function sendWhatsApp() {
   });
 
   let msg = '🧾 *COMPROVANTE DE PEDIDO*\n';
-  msg += '🍕 *Oba Dellivery*\n';
+  msg += '🍕 *Oba Dellivery Pizzas & Mercadinho Express *\n';
   msg += '━━━━━━━━━━━━━━━━━━━━\n';
   msg += `📅 ${dataHora}\n`;
   msg += '━━━━━━━━━━━━━━━━━━━━\n\n';
-  msg += '🧀 *AVISO:* Todas as pizzas vêm com *cheddar e catupiry* (opcional).\n';
+  msg += '🧀 *AVISO:*Vai pedir pizza? Todas as pizzas vêm com *cheddar e catupiry* (opcional).\n';
   msg += 'Se não quiser, escreva aqui pedindo para *retirar* o cheddar e/ou o catupiry.\n\n';
   msg += '📋 *ITENS DO PEDIDO*\n\n';
 
@@ -1125,7 +1125,7 @@ function sendWhatsApp() {
   msg += '\n━━━━━━━━━━━━━━━━━━━━\n';
   msg += `💰 *TOTAL A PAGAR: ${fmt(total)}*\n`;
   msg += '━━━━━━━━━━━━━━━━━━━━\n\n';
-  msg += '💲 *Lembrete:* 5% de desconto pagando em dinheiro!\n';
+  msg += '💲 *Lembrete:* 5% de desconto pagando em dinheiro(válido somente para pizzas!\n';
   msg += '🧀 *Lembrete:* cheddar e catupiry são opcionais — peça para retirar se não quiser.\n\n';
   msg += '✅ Aguardo a confirmação do pedido.\n';
   msg += 'Obrigado pela preferência! 😊';
