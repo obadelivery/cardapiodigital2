@@ -214,24 +214,65 @@ h1,h2,h3,h4 { font-family: 'Space Grotesk', sans-serif; }
   border-radius: var(--radius); padding: 16px;
 }
 .builder-panel h3 { font-size: 15px; font-weight: 700; margin-bottom: 12px; }
+
+/* Bloco 1: categorias */
+.builder-step {
+  border-radius: 14px;
+  padding: 14px;
+  margin-bottom: 14px;
+}
+.builder-step-cats {
+  background: linear-gradient(160deg, rgba(245,158,11,0.14), rgba(217,119,6,0.06));
+  border: 2px solid rgba(245,158,11,0.35);
+}
+.builder-step-ings {
+  background: linear-gradient(160deg, rgba(34,197,94,0.10), rgba(22,163,74,0.04));
+  border: 2px solid rgba(34,197,94,0.30);
+  margin-bottom: 0;
+}
+.builder-step-header {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 12px; flex-wrap: wrap;
+}
+.builder-step-num {
+  flex-shrink: 0;
+  width: 28px; height: 28px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 800; font-family: 'Space Grotesk', sans-serif;
+}
+.builder-step-cats .builder-step-num {
+  background: var(--accent); color: #000;
+}
+.builder-step-ings .builder-step-num {
+  background: #22c55e; color: #000;
+}
+.builder-step-title {
+  font-size: 14px; font-weight: 700; color: var(--text); line-height: 1.3;
+}
+.builder-step-title span {
+  display: block; font-size: 11px; font-weight: 500; color: var(--text3); margin-top: 2px;
+}
+.builder-step-ings .builder-step-title strong {
+  color: #4ade80;
+}
+
 .builder-cats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 8px;
-  margin-bottom: 14px;
 }
 .bcat {
   padding: 12px 8px;
-  border: 1.5px solid var(--border); background: var(--bg2);
+  border: 1.5px solid rgba(245,158,11,0.25); background: rgba(10,10,11,0.45);
   border-radius: 10px; color: var(--text2); font-size: 12px; font-weight: 600;
   cursor: pointer; font-family: inherit; transition: all .15s;
-  white-space: nowrap; min-height: 52px;
+  white-space: nowrap; min-height: 56px;
   display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;
   text-align: center;
 }
-.bcat:hover { border-color: var(--border-hover); color: var(--text); background: var(--bg3); }
-.bcat.active { background: var(--accent); border-color: var(--accent); color: #000; }
-.bcat .bcat-emoji { font-size: 20px; line-height: 1; }
+.bcat:hover { border-color: var(--accent); color: var(--text); background: rgba(245,158,11,0.12); }
+.bcat.active { background: var(--accent); border-color: var(--accent); color: #000; box-shadow: 0 4px 14px rgba(245,158,11,0.35); }
+.bcat .bcat-emoji { font-size: 22px; line-height: 1; }
 .bcat .bcat-label { font-size: 11px; font-weight: 700; letter-spacing: 0.2px; }
 
 .ing-grid {
@@ -239,15 +280,22 @@ h1,h2,h3,h4 { font-family: 'Space Grotesk', sans-serif; }
   grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
   gap: 10px;
 }
+.ing-grid-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 28px 12px;
+  color: var(--text3);
+  font-size: 13px;
+}
 .ing {
-  background: var(--bg2); border: 1.5px solid var(--border);
+  background: rgba(10,10,11,0.55); border: 1.5px solid rgba(34,197,94,0.2);
   border-radius: var(--radius-sm); padding: 12px 8px 10px;
   text-align: center; cursor: pointer; transition: all .2s;
   display: flex; flex-direction: column; align-items: center; gap: 4px;
   user-select: none; min-height: 110px; justify-content: flex-start;
 }
-.ing:hover { border-color: var(--border-hover); }
-.ing.selected { background: var(--accent-dim); border-color: var(--accent); color: var(--text); }
+.ing:hover { border-color: rgba(34,197,94,0.5); background: rgba(34,197,94,0.08); }
+.ing.selected { background: var(--accent-dim); border-color: var(--accent); color: var(--text); box-shadow: 0 0 0 1px var(--accent); }
 .ing-emoji { font-size: 26px; }
 .ing-name { font-size: 11px; font-weight: 600; line-height: 1.2; }
 .ing-price { font-size: 10px; color: var(--text3); }
@@ -655,12 +703,34 @@ h1,h2,h3,h4 { font-family: 'Space Grotesk', sans-serif; }
   <div class="builder" id="builderView">
     <div class="builder-layout">
       <div class="builder-panel">
-        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px;flex-wrap:wrap;">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px;flex-wrap:wrap;">
           <h3 style="margin:0;">🍕 Monte a sua Pizza como quiser</h3>
           <button class="btn-builder btn-builder-secondary" style="width:auto;margin:0;padding:8px 14px;min-height:38px;font-size:12px;" onclick="setFilter('all')">← Voltar ao cardápio</button>
         </div>
-        <div class="builder-cats" id="builderCats"></div>
-        <div class="ing-grid" id="ingGrid"></div>
+
+        <!-- Passo 1: Categorias -->
+        <div class="builder-step builder-step-cats">
+          <div class="builder-step-header">
+            <div class="builder-step-num">1</div>
+            <div class="builder-step-title">
+              Escolha a categoria
+              <span>Toque em uma opção abaixo (Massa, Molho, Queijo…)</span>
+            </div>
+          </div>
+          <div class="builder-cats" id="builderCats"></div>
+        </div>
+
+        <!-- Passo 2: Ingredientes -->
+        <div class="builder-step builder-step-ings">
+          <div class="builder-step-header">
+            <div class="builder-step-num">2</div>
+            <div class="builder-step-title">
+              Escolha os ingredientes — <strong id="activeIngCatLabel">Massa</strong>
+              <span>Toque no item e use + / − para a quantidade em gramas</span>
+            </div>
+          </div>
+          <div class="ing-grid" id="ingGrid"></div>
+        </div>
       </div>
       <div class="builder-summary">
         <h3>Seu pedido</h3>
@@ -920,6 +990,8 @@ function openBuilder() {
   renderBuilderCats();
   renderIngs();
   updateSummary();
+  const labelEl = document.getElementById('activeIngCatLabel');
+  if (labelEl) labelEl.textContent = '🍝 Massa';
   // Rola até o montador
   bv.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
@@ -991,6 +1063,9 @@ function setIngCat(id) {
   activeIngCat = id;
   renderBuilderCats();
   renderIngs();
+  const cat = ING_CATS.find(c => c.id === id);
+  const labelEl = document.getElementById('activeIngCatLabel');
+  if (labelEl && cat) labelEl.textContent = cat.emoji + ' ' + cat.label;
 }
 
 function renderIngs() {
