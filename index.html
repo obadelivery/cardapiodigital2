@@ -677,6 +677,89 @@ h1,h2,h3,h4 { font-family: 'Space Grotesk', sans-serif; }
 .promo-banner.clickable:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(245,158,11,0.2); }
 .promo-banner.clickable:active { transform: scale(0.99); }
 
+/* PUBLICIDADE — Parceiros da Região */
+.ad-slot {
+  position: relative;
+  margin-bottom: 16px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1.5px solid rgba(139,92,246,0.35);
+  background: linear-gradient(135deg, rgba(139,92,246,0.14), rgba(99,102,241,0.06));
+  cursor: pointer;
+  transition: transform .15s, box-shadow .15s;
+}
+.ad-slot:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(139,92,246,0.25); }
+.ad-slot:active { transform: scale(0.99); }
+.ad-slot-inner {
+  display: flex; align-items: center; gap: 14px;
+  padding: 14px 16px;
+}
+.ad-badge {
+  position: absolute;
+  top: 8px; right: 10px;
+  font-size: 9px; font-weight: 700; letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: rgba(167,139,250,0.95);
+  background: rgba(139,92,246,0.18);
+  border: 1px solid rgba(139,92,246,0.35);
+  padding: 3px 8px; border-radius: 999px;
+}
+.ad-logo {
+  width: 52px; height: 52px; border-radius: 12px; flex-shrink: 0;
+  background: rgba(139,92,246,0.2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 26px;
+  border: 1.5px solid rgba(139,92,246,0.3);
+}
+.ad-body { flex: 1; min-width: 0; padding-right: 4px; }
+.ad-body h3 {
+  font-size: 14px; font-weight: 700; color: #c4b5fd;
+  margin-bottom: 3px; line-height: 1.25;
+}
+.ad-body p {
+  font-size: 12px; color: var(--text2); line-height: 1.4;
+}
+.ad-cta {
+  flex-shrink: 0;
+  background: #8b5cf6; color: #fff;
+  border: none; border-radius: 10px;
+  padding: 10px 12px; font-size: 11px; font-weight: 700;
+  font-family: inherit; white-space: nowrap;
+  pointer-events: none;
+}
+.ad-slot-mid {
+  margin-top: 8px;
+  border-color: rgba(236,72,153,0.35);
+  background: linear-gradient(135deg, rgba(236,72,153,0.12), rgba(219,39,119,0.05));
+}
+.ad-slot-mid .ad-badge {
+  color: rgba(244,114,182,0.95);
+  background: rgba(236,72,153,0.18);
+  border-color: rgba(236,72,153,0.35);
+}
+.ad-slot-mid .ad-logo {
+  background: rgba(236,72,153,0.18);
+  border-color: rgba(236,72,153,0.3);
+}
+.ad-slot-mid .ad-body h3 { color: #f9a8d4; }
+.ad-slot-mid .ad-cta { background: #ec4899; }
+.ad-slot-bottom {
+  margin-top: 8px;
+  border-color: rgba(56,189,248,0.35);
+  background: linear-gradient(135deg, rgba(56,189,248,0.12), rgba(14,165,233,0.05));
+}
+.ad-slot-bottom .ad-badge {
+  color: rgba(125,211,252,0.95);
+  background: rgba(56,189,248,0.18);
+  border-color: rgba(56,189,248,0.35);
+}
+.ad-slot-bottom .ad-logo {
+  background: rgba(56,189,248,0.18);
+  border-color: rgba(56,189,248,0.3);
+}
+.ad-slot-bottom .ad-body h3 { color: #7dd3fc; }
+.ad-slot-bottom .ad-cta { background: #0ea5e9; }
+
 /* FLOATING CART (mobile) */
 .fab {
   position: fixed; bottom: calc(20px + var(--safe-bottom)); right: 20px; z-index: 40;
@@ -694,10 +777,157 @@ h1,h2,h3,h4 { font-family: 'Space Grotesk', sans-serif; }
   border-radius: 50%; font-size: 11px; font-weight: 700;
   display: none; align-items: center; justify-content: center;
 }
+/* FAB de publicidade (no lugar do carrinho flutuante) */
+.fab-ad {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+  box-shadow: 0 6px 24px rgba(139,92,246,0.45);
+  right: 20px;
+  bottom: calc(20px + var(--safe-bottom));
+}
+.fab-ad:hover { transform: scale(1.08); background: linear-gradient(135deg, #a78bfa, #7c3aed); }
+.fab-ad-label {
+  font-size: 9px; font-weight: 800; letter-spacing: 0.5px;
+  text-transform: uppercase; line-height: 1;
+}
 @media (max-width: 640px) {
   .header .btn-cart span.label { display: none; }
-  .fab { display: flex; }
 }
+
+/* Modal de publicidade */
+.ad-modal .modal-box {
+  max-width: 420px;
+  border: 1.5px solid rgba(139,92,246,0.4);
+  overflow: hidden;
+}
+.ad-modal-hero {
+  background: linear-gradient(160deg, rgba(139,92,246,0.22), rgba(99,102,241,0.08));
+  padding: 28px 20px 20px;
+  text-align: center;
+  position: relative;
+  border-bottom: 1px solid rgba(139,92,246,0.25);
+}
+.ad-modal-badge {
+  position: absolute; top: 12px; left: 12px;
+  font-size: 10px; font-weight: 700; letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: #c4b5fd;
+  background: rgba(139,92,246,0.2);
+  border: 1px solid rgba(139,92,246,0.4);
+  padding: 4px 10px; border-radius: 999px;
+}
+.ad-modal-emoji {
+  font-size: 64px; line-height: 1;
+  width: 100px; height: 100px; margin: 8px auto 12px;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(10,10,11,0.35);
+  border-radius: 24px;
+  border: 1.5px solid rgba(139,92,246,0.3);
+}
+.ad-modal-title {
+  font-size: 18px; font-weight: 700; color: #e9d5ff; line-height: 1.3;
+}
+.ad-modal-slot {
+  font-size: 11px; color: var(--text3); margin-top: 6px; font-weight: 600;
+}
+.ad-modal-body {
+  padding: 16px 20px;
+}
+.ad-modal-desc {
+  font-size: 14px; color: var(--text2); line-height: 1.55;
+  margin-bottom: 14px;
+}
+.ad-modal-offer {
+  background: rgba(139,92,246,0.12);
+  border: 1.5px solid rgba(139,92,246,0.3);
+  border-radius: 12px;
+  padding: 14px;
+  font-size: 13px; color: var(--text); line-height: 1.45;
+  margin-bottom: 4px;
+}
+.ad-modal-offer strong { color: #c4b5fd; }
+.btn-ad-wa {
+  width: 100%; padding: 16px; background: #25d366; color: #fff;
+  border: none; border-radius: var(--radius-sm); font-weight: 800; font-size: 15px;
+  cursor: pointer; font-family: inherit; transition: all .15s; min-height: 52px;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+}
+.btn-ad-wa:hover { background: #1da851; }
+
+/* Popup AVISO IMPORTANTE (entrada) */
+.notice-modal .modal-box {
+  max-width: 440px;
+  border: 1.5px solid rgba(245,158,11,0.4);
+}
+.notice-hero {
+  padding: 22px 20px 14px;
+  text-align: center;
+  background: linear-gradient(160deg, rgba(245,158,11,0.18), rgba(217,119,6,0.06));
+  border-bottom: 1px solid rgba(245,158,11,0.25);
+}
+.notice-hero h2 {
+  font-size: 18px; font-weight: 800; color: var(--accent2);
+  letter-spacing: -0.2px;
+}
+.notice-hero p {
+  font-size: 12px; color: var(--text3); margin-top: 6px;
+}
+.notice-list {
+  padding: 12px 16px 4px;
+  display: flex; flex-direction: column; gap: 10px;
+  max-height: min(55dvh, 420px);
+  overflow-y: auto; -webkit-overflow-scrolling: touch;
+}
+.notice-item {
+  display: flex; gap: 12px; align-items: flex-start;
+  background: var(--card);
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  padding: 12px;
+}
+.notice-item.green {
+  border-color: rgba(34,197,94,0.3);
+  background: linear-gradient(135deg, rgba(34,197,94,0.10), rgba(22,163,74,0.04));
+}
+.notice-item.amber {
+  border-color: rgba(245,158,11,0.35);
+  background: linear-gradient(135deg, rgba(245,158,11,0.12), rgba(217,119,6,0.05));
+}
+.notice-item .ni-icon {
+  font-size: 26px; line-height: 1; flex-shrink: 0; margin-top: 2px;
+}
+.notice-item .ni-text h4 {
+  font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 3px;
+}
+.notice-item.green .ni-text h4 { color: #4ade80; }
+.notice-item.amber .ni-text h4 { color: var(--accent); }
+.notice-item .ni-text p {
+  font-size: 12px; color: var(--text2); line-height: 1.4;
+}
+.notice-ad {
+  margin: 4px 16px 0;
+  border-radius: 12px;
+  border: 1.5px solid rgba(139,92,246,0.4);
+  background: linear-gradient(135deg, rgba(139,92,246,0.14), rgba(99,102,241,0.06));
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform .15s;
+}
+.notice-ad:hover { transform: scale(1.01); }
+.notice-ad-inner {
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px;
+  position: relative;
+}
+.notice-ad .ad-badge { top: 6px; right: 8px; }
+.notice-ad .ad-logo {
+  width: 44px; height: 44px; font-size: 22px;
+}
+.notice-ad .ad-body h3 { font-size: 13px; }
+.notice-ad .ad-body p { font-size: 11px; }
+.notice-ad .ad-cta { padding: 8px 10px; font-size: 10px; }
 </style>
 </head>
 <body>
@@ -724,39 +954,25 @@ h1,h2,h3,h4 { font-family: 'Space Grotesk', sans-serif; }
 </header>
 
 <main class="main">
-  <!-- Promo -->
-  <div class="promo-banner" id="promoBanner">
-    <div class="promo-icon">💲</div>
-    <div class="promo-text">
-      <h3>5% de desconto à vista!</h3>
-      <p>Pagando em dinheiro em espécie você tem 5% de desconto em qualquer Pizza hoje.(VÁLIDO SÓ PARA PIZZAS)</p>
-    </div>
-  </div>
-
-  <!-- Aviso cheddar/catupiry -->
-  <div class="promo-banner" style="border-color: rgba(34,197,94,0.3); background: linear-gradient(135deg, rgba(34,197,94,0.12), rgba(22,163,74,0.06));">
-    <div class="promo-icon">🧀</div>
-    <div class="promo-text">
-      <h3 style="color: #22c55e;">Cheddar e Catupiry inclusos (opcional)</h3>
-      <p>Todas as pizzas vêm com cheddar e catupiry. Se não quiser, avise na mensagem do WhatsApp pedindo para retirar ao enviar o comprovante.</p>
-    </div>
-  </div>
-
-    <!-- Também somos S.O.S casa!-->
-  <div class="promo-banner" style="border-color: rgba(34,197,94,0.3); background: linear-gradient(135deg, rgba(34,197,94,0.12), rgba(22,163,74,0.06));">
-    <div class="promo-icon">🛒</div>
-    <div class="promo-text">
-      <h3 style="color: #22c55e;">Mercadinho Online (Express)</h3>
-      <p>Sua pizza preferida e o socorro da sua cozinha em qualquer hora em 1 só lugar.</p>
+  <!-- PUBLICIDADE — Slot TOPO -->
+  <div class="ad-slot" onclick="openAd('topo')" role="button" aria-label="Publicidade — Parceiro local">
+    <span class="ad-badge">Publicidade</span>
+    <div class="ad-slot-inner">
+      <div class="ad-logo">🏪</div>
+      <div class="ad-body">
+        <h3>Seu comércio aqui — Slot Topo</h3>
+        <p>Anuncie para quem está pedindo pizza e mercado na região. Toque para ver o anúncio.</p>
+      </div>
+      <span class="ad-cta">Ver anúncio</span>
     </div>
   </div>
 
   <!-- Monte sua pizza (botão de acesso) -->
   <div class="promo-banner clickable" id="btnMontePizza" onclick="openBuilder()" style="cursor: pointer; border-color: rgba(245,158,11,0.45); background: linear-gradient(135deg, rgba(245,158,11,0.18), rgba(217,119,6,0.08));">
-    <div class="promo-icon">🛠️</div>
+    <div class="promo-icon">🧑‍🍳</div>
     <div class="promo-text">
       <h3>Monte a sua Pizza do seu jeito!</h3>
-      <p>Clique aqui para escolher massa, molho, queijos, carnes e vegetais. Você define a quantidade em gramas (50g a 250g) e o preço é calculado automaticamente.</p>
+      <p>"CLIQUE AQUI" para escolher: massa, molho, queijos, carnes e vegetais. Você Escolhe como quer montar sua pizza 🍕</p>
     </div>
   </div>
 
@@ -776,6 +992,19 @@ h1,h2,h3,h4 { font-family: 'Space Grotesk', sans-serif; }
       <div class="super-subs" id="superSubs"></div>
     </div>
     <div class="grid" id="grid"></div>
+
+    <!-- PUBLICIDADE — Slot MEIO -->
+    <div class="ad-slot ad-slot-mid" onclick="openAd('meio')" role="button" aria-label="Publicidade — Parceiro local">
+      <span class="ad-badge">Publicidade</span>
+      <div class="ad-slot-inner">
+        <div class="ad-logo">💈</div>
+        <div class="ad-body">
+          <h3>Seu comércio aqui — Slot Meio</h3>
+          <p>Apareça no meio do cardápio, entre os produtos. Ideal para negócios da região.</p>
+        </div>
+        <span class="ad-cta">Ver anúncio</span>
+      </div>
+    </div>
   </div>
 
   <!-- Builder -->
@@ -825,13 +1054,28 @@ h1,h2,h3,h4 { font-family: 'Space Grotesk', sans-serif; }
       </div>
     </div>
   </div>
+
+  <!-- PUBLICIDADE — Slot FINAL -->
+  <div class="ad-slot ad-slot-bottom" onclick="openAd('final')" role="button" aria-label="Publicidade — Parceiro local">
+    <span class="ad-badge">Publicidade</span>
+    <div class="ad-slot-inner">
+      <div class="ad-logo">📢</div>
+      <div class="ad-body">
+        <h3>Seu comércio aqui — Slot Final</h3>
+        <p>Última impressão do cardápio. Perfeito para ofertas e serviços locais.</p>
+      </div>
+      <span class="ad-cta">Ver anúncio</span>
+    </div>
+  </div>
 </main>
 
-<!-- Floating cart button (mobile) -->
-<button class="fab" id="fab" onclick="openCart()" aria-label="Carrinho">
-  🛒
-  <span class="badge" id="fabBadge">0</span>
+<!-- Floating AD button (substitui o carrinho flutuante no mobile; carrinho fica no header) -->
+<button class="fab fab-ad" id="fabAd" onclick="openAd('flutuante')" aria-label="Ver publicidade">
+  📢
+  <span class="fab-ad-label">Ads</span>
 </button>
+
+<!-- Carrinho: apenas no header (badge atualiza normalmente) -->
 
 <!-- Cart overlay + drawer -->
 <div class="overlay" id="cartOverlay" onclick="closeCart()"></div>
@@ -906,6 +1150,77 @@ h1,h2,h3,h4 { font-family: 'Space Grotesk', sans-serif; }
   </div>
 </div>
 
+<!-- Popup AVISO IMPORTANTE (abre 1x por acesso) -->
+<div class="modal notice-modal" id="noticeModal">
+  <div class="modal-box">
+    <div class="notice-hero">
+      <h2>⚠️ AVISO IMPORTANTE</h2>
+      <p>🚨LEIA ANTES DE FAZER O SEU PEDIDO 🚨</p>
+    </div>
+    <div class="notice-list">
+      <div class="notice-item amber">
+        <div class="ni-icon">💲</div>
+        <div class="ni-text">
+          <h4>5% de desconto à vista!</h4>
+          <p>Pagando em dinheiro em espécie você tem 5% de desconto em qualquer Pizza hoje. (VÁLIDO SÓ PARA PIZZAS)</p>
+        </div>
+      </div>
+      <div class="notice-item green">
+        <div class="ni-icon">🧀</div>
+        <div class="ni-text">
+          <h4>Cheddar e Catupiry inclusos (opcional)</h4>
+          <p>Todas as pizzas vêm com cheddar e catupiry. Se não quiser, avise na mensagem do WhatsApp pedindo para retirar ao enviar o comprovante.</p>
+        </div>
+      </div>
+      <div class="notice-item green">
+        <div class="ni-icon">🛒</div>
+        <div class="ni-text">
+          <h4>Mercadinho Online (Express)</h4>
+          <p>Agora também somos socorro da sua cozinha em qualquer hora em 1 só lugar.</p>
+        </div>
+      </div>
+    </div>
+    <!-- Slot de publicidade dentro do popup -->
+    <div class="notice-ad" onclick="closeNotice(); openAd('popup');" role="button" aria-label="Publicidade">
+      <span class="ad-badge">Publicidade</span>
+      <div class="notice-ad-inner">
+        <div class="ad-logo">🌟</div>
+        <div class="ad-body">
+          <h3>Seu comércio aqui — Slot Popup</h3>
+          <p>Aparece na abertura do cardápio. Máxima visibilidade.</p>
+        </div>
+        <span class="ad-cta">Ver</span>
+      </div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn-add-detail" onclick="closeNotice()" style="background:var(--accent);color:#000;">Entendi, quero pedir</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal de publicidade -->
+<div class="modal ad-modal" id="adModal">
+  <div class="modal-box">
+    <div class="ad-modal-hero">
+      <span class="ad-modal-badge">Publicidade</span>
+      <div class="ad-modal-emoji" id="adModalEmoji">🏪</div>
+      <div class="ad-modal-title" id="adModalTitle">Parceiro local</div>
+      <div class="ad-modal-slot" id="adModalSlot">Anúncio</div>
+    </div>
+    <div class="ad-modal-body">
+      <p class="ad-modal-desc" id="adModalDesc"></p>
+      <div class="ad-modal-offer" id="adModalOffer"></div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn-ad-wa" id="adModalWaBtn" onclick="contactAd()">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Falar no WhatsApp
+      </button>
+      <button class="btn-back" onclick="closeAd()">Fechar</button>
+    </div>
+  </div>
+</div>
+
 <div class="toast" id="toast"></div>
 
 <script>
@@ -949,7 +1264,8 @@ const PRODUCTS = [
   { id: 32, name: 'Pizza Bacon simples/econômica Brotinho', category: 'pizza', size: 'brotinho', description: 'Molho, mussarela, bacon, tomate, cebola, azeite, cheddar e catupiry', price: 17.00, emoji: '🍕' },
   { id: 33, name: 'Coca-Cola 2L', category: 'bebida', description: 'Refrigerante gelado', price: 13.00, emoji: '🥤' },
   { id: 34, name: 'Guaraná Antarctica 2L', category: 'bebida', description: 'Refrigerante gelado', price: 11.00, emoji: '🥤' },
-  { id: 35, name: 'Cerveja Antarctica 15 latas palito', category: 'bebida', description: 'Caixa de cerveja gelada', price: 60.00, emoji: '🍺' },
+   id: 35, name: 'Jaó Guaraná 2L', category: 'bebida', description: 'Refrigerante gelado', price: 7.50, emoji: '🥤' },
+  { id: 46, name: 'Cerveja Antarctica 15 latas palito', category: 'bebida', description: 'Caixa de cerveja gelada', price: 60.00, emoji: '🍺' },
   { id: 36, name: 'Cerveja Skol 15 latas palito', category: 'bebida', description: 'Caixa de cerveja gelada', price: 60.00, emoji: '🍺' },
   { id: 37, name: 'Cerveja Antarctica lata palito (Unidade)', category: 'bebida', description: 'Cerveja gelada', price: 5.00, emoji: '🍺' },
   { id: 38, name: 'Cerveja Skol lata palito (Unidade)', category: 'bebida', description: 'Cerveja gelada', price: 5.00, emoji: '🍺' },
@@ -968,28 +1284,28 @@ const SUPER_SUBCATS = [
   { id: 'limpeza', label: 'Limpeza', emoji: '🧹', hint: 'Produtos de limpeza' },
   { id: 'carnes', label: 'Carnes', emoji: '🥩', hint: 'Carnes e frios' },
   { id: 'padaria', label: 'Padaria', emoji: '🥖', hint: 'Pães e massas' },
-  { id: 'utilidades', label: 'Utilidades', emoji: '🔧', hint: 'Utensílios e casa' },
+  { id: 'utilidades', label: 'Utilidades', emoji: '🍽️', hint: 'Utensílios e casa' },
 ];
 
 const INGREDIENTS = [
-  { id: 'massa1', category: 'massa', name: 'Massa 8 fatias', emoji: '🍕', price: 3.50, fixed: true },
-  { id: 'massa2', category: 'massa', name: 'Massa 6 fatias', emoji: '🍕', price: 3.25, fixed: true },
-  { id: 'massa3', category: 'massa', name: 'Massa 4 fatias', emoji: '🍕', price: 3.00, fixed: true },
-  { id: 'massa4', category: 'massa', name: 'Massa Brotinho', emoji: '🍕', price: 2.00, fixed: true },
-  { id: 'mol1', category: 'molho', name: 'Molho', emoji: '🫙', price: 2.10 },
-  { id: 'que1', category: 'queijo', name: 'Mussarela', emoji: '🧀', price: 10.00 },
-  { id: 'que2', category: 'queijo', name: 'Cheddar', emoji: '🧀', price: 3.50 },
-  { id: 'que3', category: 'queijo', name: 'Catupiry', emoji: '🧀', price: 3.50 },
-  { id: 'car1', category: 'carnes', name: 'Calabresa', emoji: '🥩', price: 4.00 },
-  { id: 'car2', category: 'carnes', name: 'Presunto', emoji: '🥩', price: 5.00 },
-  { id: 'car3', category: 'carnes', name: 'Salsicha', emoji: '🌭', price: 3.00 },
-  { id: 'car4', category: 'carnes', name: 'Frango', emoji: '🍗', price: 5.00 },
+  { id: 'massa1', category: 'massa', name: 'Massa para pizza 8 fatias', emoji: '🍕', price: 3.50, fixed: true },
+  { id: 'massa2', category: 'massa', name: 'Massa para pizza 6 fatias', emoji: '🍕', price: 3.25, fixed: true },
+  { id: 'massa3', category: 'massa', name: 'Massa para pizza 4 fatias', emoji: '🍕', price: 3.00, fixed: true },
+  { id: 'massa4', category: 'massa', name: 'Massa para pizza Brotinho', emoji: '🍕', price: 2.00, fixed: true },
+  { id: 'mol1', category: 'molho', name: 'Molho de tomate', emoji: '🫙', price: 2.10 },
+  { id: 'que1', category: 'queijo', name: 'Mussarela ralada', emoji: '🧀', price: 10.00 },
+  { id: 'que2', category: 'queijo', name: ' Creme Cheddar', emoji: '🧀', price: 3.50 },
+  { id: 'que3', category: 'queijo', name: 'Creme Catupiry', emoji: '🧀', price: 3.50 },
+  { id: 'car1', category: 'carnes', name: 'Calabresas fatiadas', emoji: '🥩', price: 4.00 },
+  { id: 'car2', category: 'carnes', name: 'Presunto ralado', emoji: '🥩', price: 5.00 },
+  { id: 'car3', category: 'carnes', name: 'Salsicha fatiada', emoji: '🌭', price: 3.00 },
+  { id: 'car4', category: 'carnes', name: 'Frango desfiado', emoji: '🍗', price: 5.00 },
   { id: 'car5', category: 'carnes', name: 'Carne moída', emoji: '🥩', price: 6.00 },
-  { id: 'car6', category: 'carnes', name: 'Bacon', emoji: '🥓', price: 6.00 },
+  { id: 'car6', category: 'carnes', name: 'Bacon fatiado', emoji: '🥓', price: 6.00 },
   { id: 'veg1', category: 'vegetais', name: 'Milho verde', emoji: '🌽', price: 2.20 },
-  { id: 'veg2', category: 'vegetais', name: 'Azeitonas', emoji: '🫒', price: 8.60 },
-  { id: 'veg3', category: 'vegetais', name: 'Cebola', emoji: '🧅', price: 1.00 },
-  { id: 'veg6', category: 'vegetais', name: 'Tomate', emoji: '🍅', price: 2.00 },
+  { id: 'veg2', category: 'vegetais', name: 'Azeitonas fatiadas', emoji: '🫒', price: 8.60 },
+  { id: 'veg3', category: 'vegetais', name: 'Cebola fatiada', emoji: '🧅', price: 1.00 },
+  { id: 'veg6', category: 'vegetais', name: 'Tomate fatiado', emoji: '🍅', price: 2.00 },
   { id: 'ext1', category: 'extras', name: 'Azeite', emoji: '🍶', price: 2.00 },
   { id: 'ext2', category: 'extras', name: 'Orégano', emoji: '🌿', price: 1.00 },
   { id: 'ext3', category: 'extras', name: 'Ketchup', emoji: '🍅', price: 1.00 },
@@ -1012,17 +1328,101 @@ const CATS = [
   { id: 'all', label: 'Todos', emoji: '✨' },
   { id: 'pizza', label: 'Pizzas', emoji: '🍕' },
   { id: 'bebida', label: 'Bebidas', emoji: '🥤' },
-  { id: 'supermercado', label: 'Mercado', emoji: '🛒' },
+  { id: 'supermercado', label: 'Supermercado', emoji: '🛒' },
 ];
 
 const SIZE_LABELS = {
-  '8': '🍕 Pizzas — 8 Fatias',
-  '6': '🍕 Pizzas — 6 Fatias',
-  '4': '🍕 Pizzas — 4 Fatias',
-  'brotinho': '🍕 Pizzas — Brotinho',
+  '8': '🍕 Pizzas — 8 Fatias / 8 pedaços 👉(40 cm)',
+  '6': '🍕 Pizzas — 6 Fatias / 6 pedaços 👉(35 cm)',
+  '4': '🍕 Pizzas — 4 Fatias / 4 pedaços 👉(30 cm)',
+  'brotinho': '🍕 Pizzas — Brotinho 👉(18 cm)',
 };
 
 const WA_URL = 'https://wa.me/5564981261464';
+
+/* Conteúdo dos anúncios (edite aqui quando vender o espaço) */
+const ADS = {
+  topo: {
+    emoji: '🏪',
+    title: 'Seu comércio aqui — Slot Topo',
+    slotLabel: 'Posição: Topo do cardápio',
+    desc: 'Este é o espaço mais visível do cardápio digital. Quem abre o menu vê seu35 anúncio antes de tudo.',
+    offer: '<strong>Ideal para:</strong> mercados, farmácias, lava-jatos e serviços da região. Alcance clientes que já estão pedindo delivery agora.'
+  },
+  meio: {
+    emoji: '💈',
+    title: 'Seu comércio aqui — Slot Meio',
+    slotLabel: 'Posição: Meio do cardápio',
+    desc: 'Aparece enquanto a pessoa escolhe pizzas, bebidas e itens do mercado — no momento de maior atenção.',
+    offer: '<strong>Ideal para:</strong> salões, oficinas, lojas de bairro e ofertas rápidas. Publicidade no fluxo natural do pedido.'
+  },
+  final: {
+    emoji: '📢',
+    title: 'Seu comércio aqui — Slot Final',
+    slotLabel: 'Posição: Final do cardápio',
+    desc: 'Última impressão antes de fechar o pedido. Ótimo para reforçar marca e promoções locais.',
+    offer: '<strong>Ideal para:</strong> cupons, “mencione o Oba Delivery”, parceiros recorrentes e serviços 24h.'
+  },
+  flutuante: {
+    emoji: '✨',
+    title: 'Parceiros da Região',
+    slotLabel: 'Botão flutuante · Destaque permanente',
+    desc: 'Este botão fica sempre visível na tela. O cliente pode abrir a publicidade a qualquer momento, sem interromper o pedido.',
+    offer: '<strong>Quer anunciar?</strong> Fale conosco no WhatsApp e garanta seu espaço no cardápio da Oba Delivery — pizzas e mercadinho da região.'
+  },
+  popup: {
+    emoji: '🌟',
+    title: 'Seu comércio aqui — Slot Popup',
+    slotLabel: 'Posição: Aviso de entrada',
+    desc: 'Este anúncio aparece no popup de abertura do cardápio — a primeira tela que o cliente vê ao entrar.',
+    offer: '<strong>Ideal para:</strong> máxima visibilidade. Quem abre o menu lê os avisos e já vê sua marca.'
+  }
+};
+
+let currentAdSlot = null;
+
+function openAd(slot) {
+  const ad = ADS[slot] || ADS.topo;
+  currentAdSlot = slot;
+  document.getElementById('adModalEmoji').textContent = ad.emoji;
+  document.getElementById('adModalTitle').textContent = ad.title;
+  document.getElementById('adModalSlot').textContent = ad.slotLabel;
+  document.getElementById('adModalDesc').textContent = ad.desc;
+  document.getElementById('adModalOffer').innerHTML = ad.offer;
+  document.getElementById('adModal').classList.add('open');
+}
+
+function closeAd() {
+  document.getElementById('adModal').classList.remove('open');
+  currentAdSlot = null;
+}
+
+function contactAd() {
+  const nomes = {
+    topo: 'Topo', meio: 'Meio', final: 'Final',
+    flutuante: 'Botão flutuante', popup: 'Popup de entrada'
+  };
+  const onde = nomes[currentAdSlot] || currentAdSlot || 'cardápio';
+  const msg =
+    'Olá! Vi esse anúncio no *Oba Delivery* (slot ' + onde + ') e quero saber mais sobre como anunciar meu comércio no cardápio.';
+  window.open(WA_URL + '?text=' + encodeURIComponent(msg), '_blank');
+}
+
+/* Popup de avisos — 1x por acesso (sessionStorage) */
+function openNotice() {
+  document.getElementById('noticeModal').classList.add('open');
+}
+function closeNotice() {
+  document.getElementById('noticeModal').classList.remove('open');
+  try { sessionStorage.setItem('oba_notice_seen', '1'); } catch (e) {}
+}
+function maybeShowNotice() {
+  try {
+    if (sessionStorage.getItem('oba_notice_seen') === '1') return;
+  } catch (e) {}
+  // Pequeno atraso para não competir com o loader
+  setTimeout(openNotice, 700);
+}
 
 /* ========== STATE ========== */
 let cart = [];
@@ -1453,13 +1853,10 @@ function updateCartUI() {
   const count = cart.reduce((s, i) => s + i.qty, 0);
   const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
   const badge = document.getElementById('cartCount');
-  const fabBadge = document.getElementById('fabBadge');
   if (count > 0) {
     badge.style.display = 'flex'; badge.textContent = count;
-    fabBadge.style.display = 'flex'; fabBadge.textContent = count;
   } else {
     badge.style.display = 'none';
-    fabBadge.style.display = 'none';
   }
   document.getElementById('cartTotal').textContent = fmt(total);
 
@@ -1609,8 +2006,15 @@ function init() {
   document.getElementById('checkoutModal').addEventListener('click', function(e) {
     if (e.target === this) closeCheckout();
   });
+  document.getElementById('adModal').addEventListener('click', function(e) {
+    if (e.target === this) closeAd();
+  });
+  document.getElementById('noticeModal').addEventListener('click', function(e) {
+    if (e.target === this) closeNotice();
+  });
 
   setTimeout(() => document.getElementById('loader').classList.add('hide'), 600);
+  maybeShowNotice();
 }
 
 if (document.readyState === 'loading') {
